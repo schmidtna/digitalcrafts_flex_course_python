@@ -78,8 +78,26 @@ def tip_calc():
 
 # While loop ex 9
 
-# i
-# while i < 11:
+# i = -1
+# while i < 9:
 #     for i in range(1, 11):
 #         print(i)
+
+# ex 10
+
+def coin_dispenser():
+    new_coin = "yes"
+    coin_count = 0
+    while new_coin != "no" or new_coin != "n":
+        new_coin = input("You have {} coins, would you like a coin? ".format(coin_count))
+        new_coin = new_coin.lower()
+        if new_coin == "yes" or new_coin == "y":
+            coin_count += 1
+        elif new_coin == "no" or new_coin == "n":
+            print("Bye!")
+            break
+        else:
+            print("Please use only yes or no!")
+            
+coin_dispenser()
     
