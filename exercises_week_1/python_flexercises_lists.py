@@ -41,7 +41,7 @@ def factor_multi():
 
     print(multi_list)
 
-# factor_multi()
+# factor_multi() ex 8
 def list_multi():
     numlist_1 = [1, 2, 3]
     numlist_2 = [4, 5, 6]
@@ -49,4 +49,34 @@ def list_multi():
 
     print(cross_multi)
 
-list_multi()
+# list_multi()
+
+# matrix addition ex 9, 10
+import numpy as np
+
+def matrix_add():
+    matrix1 = np.matrix([[2, -2, 7, 11], [4, 6, 5, 101]])
+    matrix2 = np.matrix([[3, 4, 6, 18], [5, 6, 30, 7]])
+    
+    print(matrix1 + matrix2)
+
+# matrix_add()
+
+# setting sets ex 11
+
+def cleanup():
+    stuffs = ["cheese", "fish", "more", "cheese", "more", "are", "more", "funky"]
+    filter_bucket = set(stuffs)
+    print(filter_bucket)
+
+# cleanup()
+
+# bonus ex 12
+
+def matrix_multi():
+    matrix1 = np.matrix([[2, 3], [6, 7]])
+    matrix2 = np.matrix([[6, 7], [2, 3]])
+    
+    print(matrix1 * matrix2)
+
+# matrix_multi()
