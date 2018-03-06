@@ -49,7 +49,7 @@ def list_multi():
 
     print(cross_multi)
 
-# list_multi()
+list_multi()
 
 # matrix addition ex 9, 10
 import numpy as np
