@@ -13,7 +13,7 @@ def list_sorting():
 
 # list_sorting()
 
-# list scanning ex 4, 5
+# list scanning ex 4, 5, 6
 
 def scanning_list():
     evens_list = []
@@ -28,4 +28,25 @@ def scanning_list():
     print(evens_list)
     print(above_zero)
 
-scanning_list()
+# scanning_list()
+
+# multiply a list ex 7
+
+def factor_multi():
+    mult_factor = 4
+    start_list = [1, 2, 3, 4, 5]
+    multi_list = []
+    for i in start_list:
+        multi_list.append(i * mult_factor)
+
+    print(multi_list)
+
+# factor_multi()
+def list_multi():
+    numlist_1 = [1, 2, 3]
+    numlist_2 = [4, 5, 6]
+    cross_multi = [numlist_1 * numlist_2 for numlist_1, numlist_2 in zip(numlist_1, numlist_2)]
+
+    print(cross_multi)
+
+list_multi()
