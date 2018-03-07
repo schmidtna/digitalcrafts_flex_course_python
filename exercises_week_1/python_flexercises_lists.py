@@ -8,10 +8,11 @@
 def list_sorting():
     mylist = [ 5, 6, 1, 7, 3, 9]
     mylist.sort()
+    print(mylist)
     print(mylist.pop())
     print(mylist.pop(0))
 
-# list_sorting()
+list_sorting()
 
 # list scanning ex 4, 5, 6
 
@@ -49,7 +50,7 @@ def list_multi():
 
     print(cross_multi)
 
-list_multi()
+# list_multi()
 
 # matrix addition ex 9, 10
 import numpy as np
