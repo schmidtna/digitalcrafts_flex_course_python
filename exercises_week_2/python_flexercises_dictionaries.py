@@ -35,12 +35,14 @@ def nest_dict():
         ]
     }
 
-    print(ramit["email"])
-    print(ramit["interests"][0])
-    print(ramit["friends"][0]["email"])
-    print(ramit["friends"][1]["interests"][1])
+    # print(ramit["email"])
+    # print(ramit["interests"][0])
+    # print(ramit["friends"][0]["email"])
+    # print(ramit["friends"][1]["interests"][1])
+    for i in ramit.keys():
+        print(i)
 
-# nest_dict()
+nest_dict()
 
 
 

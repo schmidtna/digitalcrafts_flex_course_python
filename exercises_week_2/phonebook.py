@@ -1,4 +1,4 @@
-
+import json
 
 main_menu = ("""
 Electronic Phone Book
@@ -9,39 +9,43 @@ Electronic Phone Book
 4. List all entries
 5. Quit
 """)
-print(main_menu)
+
+def app_launch():
+    global pb
+    with open("phonebook.json", "r") as phonebook:
+        pb = json.load(phonebook)
+       
+        option_select()
+        
+def entry_list(user_library):
+    for key in user_library.keys():
+        print(user_library[key]["name"])
+                      
 
 def option_select():
-    while True:
+    
+    run = True
+    while run:
+        print(main_menu)
         try:
             choice = int(input("Enter your selection number (1-5) "))
-            if choice > 0 and choice < 6:
-                print(choice)
-                break
-            else:
-                print("Sorry only numbers 1-5 are valid\n")
-                print(main_menu)
-
         except ValueError:
-            print("Sorry only numbers are valid (1-5)\n")
+            print("Sorry only numbers 1-5 are valid.\n")
 
-            # if choice == 1:
-            #     entry_lookup()
-            #     break
-            # elif choice == 2:
-            #     entry_input()
-            #     break
-            # elif choice == 3:
-            #     entry_del()
-            #     break
-            # elif choice == 4:
-            #     lib_list()
-            #     break
-            # elif choice == 5
-            #     break
-            
-            
-option_select()
+        if choice < 1 or choice > 5:
+            print("Sorry only numbers 1-5 are valid.\n")
+        elif choice == 1:
+            entry_lookup()
+        elif choice == 2:
+            entry_input()
+        elif choice == 3:
+            entry_del()
+        elif choice == 4:
+            entry_list(pb)
+        elif choice == 5:
+            run = False
+            break
+
 
 
 
@@ -50,3 +54,5 @@ option_select()
 #     "Nick" : "713-504-1010"
     
 #     }
+
+app_launch()
