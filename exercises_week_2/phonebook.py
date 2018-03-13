@@ -77,13 +77,5 @@ def option_select():
             run = False
             break
 
-
-
-
-
-# contact_list = {
-#     "Nick" : "713-504-1010"
-    
-#     }
-
-app_launch()
+if __name__ == "__main__":
+    app_launch()
