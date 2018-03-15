@@ -1,3 +1,6 @@
+import random
+
+
 class Character:
     def __init__(self, health, power, creature_type):
        self.health = health
@@ -16,6 +19,23 @@ class Character:
         if enemy.alive == False:
             print("{} has killed {}!")
 
+    def crit_atk_20(self, enemy):
+        crt_chance = random.randint(1, 100)
+        if crt_chance >= 80:
+            enemy.health -= self.power * 2
+            print("Critical hit! You deal {} damage to the {}!!".format(self.power * 2, enemy.creature_type))
+        else:
+            enemy.health -= self.power
+            print("The {} deals {} damage to the {}!!".format(self.creature_type,self.power, enemy.creature_type))
+        
+        if enemy.alive == False:
+            print("{} has killed {}!")
+
+    def regen_20(self):
+        regen_chance = 
+
+
+
     def status(self):
         print("The {} has {} health remaining and {} attack power.".format(self.creature_type, self.health, self.power))
 
@@ -23,11 +43,17 @@ class Character:
 class Hero(Character):
     pass
 
+class Healer(Character):
+    def __init__(self,health, power, creature_type, heal):
+        self.heal = heal
+        super().__init__(health, power, creature_type)
+
 class Goblin(Character):
     pass
 
 hero = Hero(10, 5, "Human")
 goblin = Goblin(6, 2, "Goblin")
+healr = Healer(8, 3, "Elf", 2)
 
 def rpg_battle():
     print("You, the {} have been attacked by a {}!".format(hero.creature_type, goblin.creature_type))
@@ -46,7 +72,7 @@ def rpg_battle():
 
         user_choice = input("What do you do (1-3)?\n")
         if user_choice == "1":
-            hero.attack(goblin)
+            hero.crit_atk_20(goblin)
         elif user_choice == "2":
             print("You stare quizzically at the {}".format(goblin.creature_type))
             pass
