@@ -43,6 +43,12 @@ class Character:
         print("The {} has {} health remaining and {} attack power.".format(self.creature_type, self.health, self.power))
 
 
+def player_death():
+    if hero.alive == False:
+        print("You were slain by the {}!".format(goblin.creature_type))
+    else:
+        pass
+        
 class Hero(Character):
     pass
 
@@ -59,24 +65,23 @@ class Healer(Character):
         else:
             pass
 
-class Goblin(Character):
+class Monster(Character):
     pass
 
-hero = Hero(10, 5, "Human Warrior", 0)
+## player classes ##
+warrior = Hero(10, 5, "Human Warrior", 0)
 healer = Healer(8, 2, "Elf Healer", 0, 2)
-shadow = Hero(7, 6, " Halfling Rogue", 9)
-goblin = Goblin(6, 2, "Goblin", 0)
+rogue = Hero(5, 6, "Halfling Rogue", 9)
+
+## monsters ##
+goblin = Monster(6, 2, "Goblin", 0)
+shadow = Monster(1, 3, "Shadow Beast", 9)
 
 
-def player_death():
-    if hero.alive == False:
-        print("You were slain by the {}!".format(goblin.creature_type))
-    else:
-        pass
 
 def rpg_battle():
-    print("You, the {} have been attacked by a {}!".format(hero.creature_type, goblin.creature_type))
-    while hero.alive() and goblin.alive():
+    print("You, the {} have been attacked by a {}!".format(player.creature_type, enemy.creature_type))
+    while player.alive() and enemy.alive():
         print("""
         What do you do?!
 
@@ -84,16 +89,15 @@ def rpg_battle():
         
         2. Do nothing
         
-        3. Run away!\n""".format(goblin.creature_type))
-        hero.status()
-        
-        goblin.status()
+        3. Run away!\n""".format(enemy.creature_type))
+        player.status()
+        enemy.status()
 
         user_choice = input("What do you do (1-3)?\n")
         if user_choice == "1":
-            hero.crit_atk_20(goblin)
+            player.crit_atk_20(enemy)
         elif user_choice == "2":
-            print("You stare quizzically at the {}".format(goblin.creature_type))
+            print("You stare quizzically at the {}".format(enemy.creature_type))
             pass
         elif user_choice == "3":
             print("You flee in terror before your foe!")
@@ -101,13 +105,14 @@ def rpg_battle():
         else:
             print("Your choices are 1, 2, or 3 only.")
 
-        if goblin.alive():
-            goblin.attack(hero)
-            if hero.alive == False:
+        if enemy.alive():
+            enemy.attack(player)
+
+            if player.alive == False:
                 player_death()
 
         else:
-            print("You have slain the {}!".format(goblin.creature_type))
+            print("You have slain the {}!".format(enemy.creature_type))
         
 
 if __name__ == "__main__":
